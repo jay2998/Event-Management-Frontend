@@ -7,7 +7,7 @@ export const notify = (message, type = 'info') => {
 
 // IMPORTANT: If testing on a real mobile phone, replace 'localhost' 
 // with your computer's IP address (e.g., 192.168.10.5)
-const API = axios.create({ baseURL: 'http://localhost:5000/api' });
+const API = axios.create({ baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api' });
 
 // Add token to requests
 API.interceptors.request.use((config) => {

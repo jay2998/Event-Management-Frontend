@@ -272,7 +272,7 @@ const VehicleFleet = () => {
             <div key={vehicle._id} style={styles.vehicleCard}>
               {vehicle.images?.[0] && (
                 <div style={styles.imageContainer}>
-                  <img src={vehicle.images[0].startsWith('http') ? vehicle.images[0] : `http://localhost:5000${vehicle.images[0]}`} alt={vehicle.name} style={styles.vehicleImage} />
+                  <img src={vehicle.images[0].startsWith('http') ? vehicle.images[0] : `${import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000'}${vehicle.images[0]}`} alt={vehicle.name} style={styles.vehicleImage} />
                 </div>
               )}
               <div style={styles.vehicleHeader}>
