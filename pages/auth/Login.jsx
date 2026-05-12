@@ -22,9 +22,11 @@ const Login = () => {
     
     try {
       const response = await login(formData);
-      const profileRes = await getProfile();
-      const userData = profileRes.data.data;
-      await authLogin(response.data.data.token, userData); // Use the context's login function
+      // The login response usually contains both the token and the user object.
+      // Calling getProfile() here fails with 401 because the token isn't yet 
+      // set in the global API headers until authLogin is executed.
+      const { token, user } = response.data.data;
+      await authLogin(token, user); 
       
       navigate('/');
     } catch (err) {

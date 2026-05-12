@@ -2,7 +2,6 @@ import React, { useState, useEffect, Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Sidebar from './components/Sidebar';
 import Navbar from './components/Navbar';
-import { AuthProvider } from './contexts/AuthContext';
 import ProtectedRoute from './ProtectedRoute';
 
 const Dashboard = lazy(() => import('./pages/Dashboard'));
